@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd ICSTSDG 2027 - Smart Technologies for Sustainable Development Goals</title>
+    
+    <!-- Google Fonts: Elegant Serif (Cormorant Garamond) + Clean Sans-Serif (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0b1d3a;
+            --secondary-blue: #162a4a;
+            --accent-gold: #d4af37;
+            --gold-light: #f4ece1;
+            --gold-hover: #b89628;
+            --text-dark: #1f2937;
+            --text-light: #f8fafc;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 4rem;
+            background-color: var(--bg-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 16px;
+            color: var(--primary-blue);
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .btn-contact {
+            background-color: var(--primary-blue);
+            color: var(--accent-gold) !important;
+            padding: 9px 20px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue) !important;
+        }
+
+        /* --- HERO SECTION WITH COLLEGE CAMPUS BACKGROUND --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(11, 29, 58, 0.85), rgba(11, 29, 58, 0.90)), 
+                        url('campus.jpg') center/cover no-repeat;
+            color: #ffffff;
+            padding: 5rem 4rem 3.5rem 4rem;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            max-width: 880px;
+        }
+
+        .preamble-tag {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .preamble-tag::before {
+            content: '';
+            width: 25px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        .hero-subtag {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4.2rem;
+            line-height: 1.08;
+            font-weight: 400;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+        }
+
+        .hero-title span {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            margin-bottom: 1.8rem;
+            font-weight: 300;
+            max-width: 750px;
+        }
+
+        .hero-date-badge {
+            display: inline-block;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 14px;
+            font-size: 13px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            border: none;
+            padding: 12px 26px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.05);
+            color: #ffffff;
+            padding: 12px 26px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #ffffff;
+        }
+
+        /* --- COUNTDOWN TIMER --- */
+        .countdown-wrapper {
+            margin-top: auto;
+        }
+
+        .countdown-title {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .countdown-title::before {
+            content: '';
+            width: 25px;
+            height: 1px;
+            background-color: var(--accent-gold);
+        }
+
+        .countdown-grid {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 14px 0;
+            flex: 1;
+            text-align: center;
+            border-radius: 4px;
+            backdrop-filter: blur(6px);
+        }
+
+        .countdown-number {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        .countdown-label {
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #cbd5e1;
+            margin-top: 6px;
+        }
+
+        /* --- GOLD BANNER BAR --- */
+        .banner-bar {
+            background: linear-gradient(90deg, var(--accent-gold), #e5c158);
+            padding: 14px 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+        }
+
+        .banner-bar a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* --- GENERAL SECTION STYLES --- */
+        .section {
+            padding: 5rem 4rem;
+        }
+
+        .section-alt {
+            background-color: var(--bg-light);
+        }
+
+        .section-dark {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: var(--primary-blue);
+        }
+
+        .section-dark .section-heading {
+            color: #ffffff;
+        }
+
+        /* --- ABOUT & CAMPUS SHOWCASE SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--accent-gold);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .about-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .campus-showcase {
+            width: 100%;
+            height: 400px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .campus-showcase img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .campus-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(11, 29, 58, 0.88);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        /* --- IMPORTANT DATES --- */
+        .dates-list {
+            max-width: 1000px;
+        }
+
+        .date-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+        }
+
+        .date-label {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .date-value {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            background-color: var(--gold-light);
+            padding: 4px 12px;
+            border-radius: 3px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        /* --- TABLES (FEES & PAYMENT) --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            font-size: 13.5px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 16px 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .fees-table thead tr:first-child th {
+            background-color: var(--primary-blue);
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .fees-table thead tr:nth-child(2) th {
+            background-color: var(--secondary-blue);
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 12.5px;
+            text-align: center;
+        }
+
+        .fees-table tbody td:nth-child(n+2) {
+            text-align: center;
+        }
+
+        .payment-table thead th {
+            background-color: var(--primary-blue);
+            color: var(--accent-gold);
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .payment-table td:first-child {
+            font-weight: 600;
+            color: var(--primary-blue);
+            width: 35%;
+            background-color: #f8fafc;
+        }
+
+        .table-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 12px;
+        }
+
+        /* --- SUBMISSION GUIDELINES & COMMITTEE --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .info-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .info-card ul {
+            list-style-type: square;
+            padding-left: 20px;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 10px;
+        }
+
+        /* --- CALL FOR PAPERS GRID --- */
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .track-card {
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-white);
+            padding: 2.5rem 2rem;
+            position: relative;
+            border-top: 3px solid var(--primary-blue);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .track-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border-top-color: var(--accent-gold);
+        }
+
+        .track-number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--accent-gold);
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-weight: 700;
+        }
+
+        .track-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-left: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
+        }
+
+        .track-list {
+            list-style: none;
+            padding-left: 3.5rem;
+        }
+
+        .track-list li {
+            font-size: 13.5px;
+            color: #475569;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .track-list li::before {
+            content: '•';
+            color: var(--accent-gold);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* --- CONTACT US --- */
+        .contact-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-box {
+            background-color: var(--gold-light);
+            border: 1px solid var(--accent-gold);
+            padding: 18px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .contact-box:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            padding: 2.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid var(--accent-gold);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-dates {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .back-to-top {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+            color: var(--accent-gold);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .tracks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar, .hero, .banner-bar, .section, .footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .section-heading {
+                font-size: 2.4rem;
+            }
+            .date-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .campus-showcase {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-badge">3rd</div>
+            <div class="logo-text">
+                <span class="logo-title">ICSTSDG 2027</span>
+                <span class="logo-sub">S.A. Engineering College</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+<li><a href="#important-dates">Important Dates</a></li>
+            <li><a href="#fees">Fees & Payment</a></li>
+            <li><a href="#call-for-papers">Call for Papers</a></li>
+            <li><a href="#submissions">Submissions</a></li>
+            <li><a href="#accommodation">Accommodation</a></li>
+            <li><a href="#contact" class="btn-contact">Contact Us &nearr;</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION WITH CAMPUS IMAGE BACKGROUND -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="preamble-tag">Preamble &bull; IEEE Conference</div>
+            <div class="hero-subtag">ICSTSDG - 2027</div>
+            <h1 class="hero-title">3rd International <span>Conference</span></h1>
+            <p class="hero-description">on Smart Technologies for Sustainable Development Goals 2027</p>
+            <div class="hero-date-badge">04&mdash;06 AUGUST 2027</div>
+            <div class="hero-buttons">
+                <a href="#important-dates" class="btn-gold">Important Dates &darr;</a>
+                <a href="#call-for-papers" class="btn-outline">Call for Papers</a>
+                <a href="#submissions" class="btn-outline">How to Submit</a>
+            </div>
+        </div>
+
+        <div class="countdown-wrapper">
+            <div class="countdown-title">Countdown to Conference</div>
+            <div class="countdown-grid">
+                <div class="countdown-box">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOLD BANNER BAR -->
+    <div class="banner-bar">
+        <span>3rd International Conference - ICSTSDG 2027</span>
+        <a href="#important-dates">Submission Deadline: 04.05.2027 &darr;</a>
+    </div>
+
+    <!-- ABOUT / PREAMBLE & CAMPUS SHOWCASE SECTION -->
+    <section id="about" class="section">
+        <div class="section-tag">Overview</div>
+        <h2 class="section-heading">Preamble & About the Conference</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>About SAEC</h3>
+                <p>S. A. Engineering College (SAEC) is an autonomous institution established with the objective of providing high-quality technical education. The college offers state-of-the-art infrastructure, experienced faculty, and strong research support across engineering and technology disciplines.</p>
+            </div>
+            <div class="about-card">
+                <h3>About IEEE & Chapters</h3>
+                <p>Supported by IEEE, IEEE Madras Section, IEEE Computer Society Madras Chapter (IEEE CS), and IEEE Professional Communication Society Madras Chapter (IEEE PCS), fostering technological innovation and excellence for humanity's benefit.</p>
+            </div>
+            <div class="about-card">
+                <h3>About the Conference & SDGs</h3>
+                <p>The 3rd International Conference on Smart Technologies for Sustainable Development Goals (ICSTSDG 2027) brings together researchers and industry experts to address critical UN Sustainable Development Goals (SDGs) through smart technologies.</p>
+            </div>
+        </div>
+
+        <!-- COLLEGE CAMPUS PICTURE SHOWCASE -->
+        <div class="campus-showcase">
+            <img src="campus.jpg" alt="S.A. Engineering College Campus">
+            <div class="campus-badge">S.A. Engineering College Campus View</div>
+        </div>
+    </section>
+
+    <!-- IMPORTANT DATES SECTION -->
+    <section id="important-dates" class="section section-alt">
+        <div class="section-tag">Timeline</div>
+        <h2 class="section-heading">Important Dates</h2>
+        <div class="dates-list">
+            <div class="date-row">
+                <span class="date-label">Last date for Submission of Full-Length Paper (Max 8 pages)</span>
+                <span class="date-value">04.05.2027</span>
+            </div>
+            <div class="date-row">
+                <span class="date-label">Last Date for Notification of Paper Acceptance</span>
+                <span class="date-value">04.06.2027</span>
+            </div>
+            <div class="date-row">
+                <span class="date-label">Last Date for Submission of Camera Ready Paper with Early Bird Registration Fee</span>
+                <span class="date-value">04.07.2027</span>
+            </div>
+            <div class="date-row">
+                <span class="date-label">Last Date for Submission of Camera Ready Paper with Standard Registration Fee</span>
+                <span class="date-value">14.07.2027</span>
+            </div>
+            <div class="date-row">
+                <span class="date-label">Conference Dates</span>
+                <span class="date-value">04&mdash;06 August 2027</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEES DETAILS & PAYMENT SECTION -->
+    <section id="fees" class="section">
+        <div class="section-tag">Registration</div>
+        <h2 class="section-heading">Conference Registration Fee</h2>
+        <div class="table-responsive">
+            <table class="custom-table fees-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="vertical-align: middle; text-align: left;">Category</th>
+                        <th colspan="2">Early Bird Registration (By 04.07.2027)</th>
+                        <th colspan="2">Standard Registration (By 14.07.2027)</th>
+                    </tr>
+                    <tr>
+                        <th>IEEE Members</th>
+                        <th>Non-IEEE Members</th>
+                        <th>IEEE Members</th>
+                        <th>Non-IEEE Members</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>UG / PG Students / Research Scholars</strong></td>
+                        <td>Rs. 8500/-</td>
+                        <td>Rs. 9500/-</td>
+                        <td>Rs. 9500/-</td>
+                        <td>Rs. 10500/-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Academicians</strong></td>
+                        <td>Rs. 9500/-</td>
+                        <td>Rs. 10500/-</td>
+                        <td>Rs. 10500/-</td>
+                        <td>Rs. 11500/-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Industry / R&D</strong></td>
+                        <td>Rs. 10500/-</td>
+                        <td>Rs. 11500/-</td>
+                        <td>Rs. 11500/-</td>
+                        <td>Rs. 12500/-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tutorial / Workshop / Keynote Talk*</strong></td>
+                        <td>Rs. 400/-</td>
+                        <td>Rs. 500/-</td>
+                        <td>Rs. 600/-</td>
+                        <td>Rs. 700/-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Foreign Delegates</strong></td>
+                        <td>US $ 250</td>
+                        <td>US $ 300</td>
+                        <td>US $ 275</td>
+                        <td>US $ 325</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="table-note">*Tutorial / Workshop topic will be announced on the conference website by June 2027.</p>
+
+        <!-- PAYMENT DETAILS TABLE -->
+        <div style="margin-top: 3.5rem;">
+            <div class="section-tag">Bank Details</div>
+            <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--primary-blue); margin-bottom: 1.2rem;">Payment Details</h3>
+            <div class="table-responsive">
+                <table class="custom-table payment-table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">PAYMENT MODE &ndash; NEFT / IMPS / DIRECT DEPOSIT / SWIFT TRANSFER / UPI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account Number</td>
+                            <td><strong>50106245804</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Account Name</td>
+                            <td><strong>SAEC IEEE STUDENT BRANCH</strong></td>
+                        </tr>
+                        <tr>
+                            <td>IFSC Code</td>
+                            <td><strong>IDIB000C571</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Bank Name</td>
+                            <td><strong>INDIAN BANK</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Branch</td>
+                            <td><strong>S. A. ENGINEERING COLLEGE</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBMISSION & COMMITTEE SECTION -->
+    <section id="submissions" class="section section-alt">
+        <div class="section-tag">Guidelines & Organization</div>
+        <h2 class="section-heading">Paper Submissions & Committee</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>How to Submit</h3>
+                <ul>
+                    <li>Papers must be original, unpublished work, and not concurrently under review elsewhere.</li>
+                    <li>Submissions must be formatted in standard IEEE double-column format.</li>
+                    <li>Maximum paper length is strictly limited to 8 pages including references and figures.</li>
+                    <li>Submit your manuscript electronically via the conference submission portal.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Where to Submit</h3>
+                <ul>
+                    <li>Online paper submission portal link available on SAEC conference domain.</li>
+                    <li>Direct link: <a href="http://www.saec.ac.in/ieeeicstsdg2027" style="color: var(--primary-blue); font-weight: 600;">www.saec.ac.in/ieeeicstsdg2027</a></li>
+                    <li>For queries regarding submission, email <a href="mailto:ieeeicstsdg2027@saec.ac.in" style="color: var(--primary-blue);">ieeeicstsdg2027@saec.ac.in</a>.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Organizing Committee & Acknowledgement</h3>
+                <ul>
+                    <li><strong>Chief Patrons & Patrons:</strong> Management & Principal, S.A. Engineering College.</li>
+                    <li><strong>Organizing Chairs:</strong> IEEE SAEC Student Branch Officers & Department Heads.</li>
+                    <li><strong>Acknowledgement:</strong> Grateful acknowledgement to IEEE Madras Section, IEEE CS, and IEEE PCS for technical co-sponsorship.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL FOR PAPERS SECTION -->
+    <section id="call-for-papers" class="section">
+        <div class="section-tag">Call For Papers</div>
+        <h2 class="section-heading">Conference Tracks</h2>
+        
+        <div class="tracks-grid">
+            <!-- Track 1 -->
+            <div class="track-card">
+                <span class="track-number">01</span>
+                <h3 class="track-title">Emerging Technologies and Computational Intelligence</h3>
+                <ul class="track-list">
+                    <li>Agent-Based Systems and Architectures</li>
+                    <li>Machine Learning and Deep Learning Tools</li>
+                    <li>Big Data Analytics and Processing</li>
+                    <li>High Performance Computing and Engineering Applications</li>
+                    <li>Cloud Computing, Edge, and Fog Computing</li>
+                </ul>
+            </div>
+
+            <!-- Track 2 -->
+            <div class="track-card">
+                <span class="track-number">02</span>
+                <h3 class="track-title">Internet of Things (IoT), Networking and Cyber-Physical Systems</h3>
+                <ul class="track-list">
+                    <li>Internet of Things (IoT) and Applications</li>
+                    <li>Networking, 5G/6G Communications</li>
+                    <li>Industrial IoT and Real-Time Monitoring</li>
+                    <li>Energy Efficiency in Embedded and Cyber-Physical Systems</li>
+                    <li>Digital Twins and Industrial IoT Applications</li>
+                </ul>
+            </div>
+
+            <!-- Track 3 -->
+            <div class="track-card">
+                <span class="track-number">03</span>
+                <h3 class="track-title">Smart Systems and Infrastructure</h3>
+                <ul class="track-list">
+                    <li>Smart Transportation and Traffic Management Systems</li>
+                    <li>Smart Healthcare and Assistive Technologies</li>
+                    <li>Smart Homes and Embedded Automation</li>
+                    <li>Autonomous and Intelligent Vehicle Technologies</li>
+                </ul>
+            </div>
+
+            <!-- Track 4 -->
+            <div class="track-card">
+                <span class="track-number">04</span>
+                <h3 class="track-title">Green and Sustainable Technologies</h3>
+                <ul class="track-list">
+                    <li>Green IT Infrastructure and Energy Optimization</li>
+                    <li>Innovation in Renewable and Green Technologies</li>
+                    <li>Green Computing and Electronic Waste Management</li>
+                    <li>Low-Power VLSI Design and Sustainable Electronics</li>
+                    <li>Sustainable Embedded Systems and Power Management</li>
+                </ul>
+            </div>
+
+            <!-- Track 5 -->
+            <div class="track-card">
+                <span class="track-number">05</span>
+                <h3 class="track-title">Industry 4.0 and Advanced Manufacturing</h3>
+                <ul class="track-list">
+                    <li>Industrial Automation and Smart Manufacturing</li>
+                    <li>Predictive Maintenance using AI and ML</li>
+                    <li>Additive Manufacturing (3D Printing) Technologies</li>
+                    <li>Robotics in Assembly, Inspection, and Logistics</li>
+                    <li>Robotics and Intelligent Control Systems</li>
+                </ul>
+            </div>
+
+            <!-- Track 6 -->
+            <div class="track-card">
+                <span class="track-number">06</span>
+                <h3 class="track-title">Security, Signal Processing and Simulation</h3>
+                <ul class="track-list">
+                    <li>Cybersecurity in Smart Systems and Embedded Devices</li>
+                    <li>Blockchain for Secure Engineering Systems</li>
+                    <li>Digital Signal and Image Processing</li>
+                    <li>Hardware Security and Trusted Computing</li>
+                    <li>Real-Time Operating Systems and Simulation Modeling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCOMMODATION SECTION -->
+    <section id="accommodation" class="section section-dark">
+        <div class="section-tag">Hospitality</div>
+        <h2 class="section-heading">Accommodation</h2>
+        <p style="font-size: 1.15rem; color: #e2e8f0; max-width: 900px; font-weight: 300; line-height: 1.8;">
+            Accommodation can be arranged in hostels inside the campus at nominal charges or nearby hotels in Chennai on request. Hotel tariff ranges from <strong>Rs. 1500 to Rs. 3000</strong>.
+        </p>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section id="contact" class="section section-alt">
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-heading">Contact Us</h2>
+        <div class="contact-cards">
+            <a href="mailto:ieeeicstsdg2027@saec.ac.in" class="contact-box">
+                &#9993; ieeeicstsdg2027@saec.ac.in
+            </a>
+            <a href="http://www.saec.ac.in/ieeeicstsdg2027" target="_blank" class="contact-box">
+                &#127760; www.saec.ac.in/ieeeicstsdg2027 &nearr;
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <div class="logo-badge">3rd</div>
+            <div>
+                <strong>ICSTSDG 2027</strong><br>
+                <span style="font-size: 11px; color: #cbd5e1;">S.A. Engineering College</span>
+            </div>
+        </div>
+        <div class="footer-dates">04&mdash;06 August 2027</div>
+        <a href="#" class="back-to-top">Back to top &uarr;</a>
+    </footer>
+
+    <!-- LIVE COUNTDOWN TIMER SCRIPT -->
+    <script>
+        const targetDate = new Date("August 4, 2027 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days.toString().padStart(3, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById("days").innerText = "000";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
